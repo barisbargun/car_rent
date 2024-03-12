@@ -8,7 +8,7 @@ import { Button, FormControl, FormField, FormItem, FormLabel, FormMessage, Input
 import { removeEmptyKeys } from "@/lib/utils"
 import { ToastMessage, HandleAlert, SelectImageButton } from "@/components"
 import { PATH_LIST } from "@/constants/enum"
-import { useMemo, useState } from "react"
+import { useState } from "react"
 
 type Props = {
   data?: ISiteValue;
@@ -50,13 +50,6 @@ const SiteValueForm = ({ data }: Props) => {
     }
 
   }
-
-  const getNavImg = useMemo(() => {
-    return
-    if (data?.serviceImg?.imgUrl || serviceImg) {
-
-    }
-  }, [data?.serviceImg?.imgUrl || serviceImg])
 
   return (
     <Form {...form}>

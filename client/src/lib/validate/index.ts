@@ -4,7 +4,6 @@ import { z } from "zod";
 const minMessage = (characters: number = 2) => `You should enter at least ${characters} characters`;
 const maxMessage = (characters: number = 150) => `You should enter maximum ${characters} characters`;
 const errorEmail = "You should enter a valid email address"
-const emptyImage = "You should enter an image"
 
 export const navSchema = z.object({
   title:

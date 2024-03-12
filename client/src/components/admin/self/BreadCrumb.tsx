@@ -1,13 +1,6 @@
 import { useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-/**
- * 
- * @pathName
- * @path enter your path like "nav-item" converts to "/admin/nav-item"
- * 
- */
-
 const className = "cursor-pointer underline-offset-4 hover:opacity-100 hover:bg-gray-100 hover:dark:text-black hover:dark:opacity-100 transition-all duration-100 opacity-30 dark:opacity-70 py-1 px-2 rounded-md capitalize "
 
 const BreadCrumb = () => {

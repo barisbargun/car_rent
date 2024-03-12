@@ -1,4 +1,4 @@
-import { ToastMessage, PageLoader, OpenDialog, UserCard, ProfileForm, HandleErrorComponent } from "@/components"
+import { ToastMessage, PageLoader, OpenDialog, UserCard, ProfileForm, CustomErrorComponent } from "@/components"
 import MaxCountComp from "@/components/MaxCountComp";
 import { maxCountsBySection } from "@/constants";
 import { ROLE_LIST } from "@/constants/enum";
@@ -22,7 +22,7 @@ const User = () => {
 
   return (
     user.role != ROLE_LIST.ADMIN ?
-      <HandleErrorComponent type="authorized" />
+      <CustomErrorComponent type="authorized" />
       :
       isPending ? <PageLoader text="Users loading.." /> : (isSuccess && data) &&
         <>

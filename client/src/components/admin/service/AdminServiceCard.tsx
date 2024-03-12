@@ -1,7 +1,5 @@
 import { OpenDialog, ServiceForm } from "@/components";
-import { AspectRatio } from "@/components/ui";
 import { _useMutation } from "@/lib/actions";
-import { Pencil1Icon } from "@radix-ui/react-icons";
 import { useMemo } from "react";
 
 type Props = {

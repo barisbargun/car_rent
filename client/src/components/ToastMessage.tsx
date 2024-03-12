@@ -1,4 +1,4 @@
-import { AxiosError, AxiosResponse } from 'axios';
+import { AxiosError } from 'axios';
 import { useToast } from './ui';
 
 type typeVariant = 'default' | 'destructive';

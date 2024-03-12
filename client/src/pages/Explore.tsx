@@ -1,9 +1,9 @@
-import { Header, Menubar, Paginator, SkeletonVehicleCard, VehicleCard } from '@/components';
+import { Header, Menubar, Paginator, VehicleCard } from '@/components';
 import { Button } from '@/components/ui'
 import { useGetMenubarTab, useGetVehicle } from '@/lib/data'
 import { IHeader } from '@/types/exports';
 import { MixerHorizontalIcon } from '@radix-ui/react-icons'
-import { Suspense, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 type Props = {

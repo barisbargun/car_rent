@@ -2,7 +2,6 @@ import { mobileNavItems, navItems } from "@/constants"
 import NavItem from "./NavItem"
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerHeader,
   DrawerTrigger,

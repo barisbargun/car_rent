@@ -1,6 +1,6 @@
 import { ToastMessage, PageLoader } from "@/components"
 import SiteValueForm from "@/components/admin/siteValue/SiteValueForm";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui";
 import { _useMutation } from "@/lib/actions";
 import { useGetSiteValue } from "@/lib/data"
 import { useEffect } from "react";

@@ -2,11 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { FooterTab, FooterLink, AdminHome, AdminHomeLayout, AdminLayout, AdminReview, AdminService, Carousel, Home, Image, Login, MenubarTab, MenubarVehicle, Navbar, Profile, User, Header, SiteValue, AdminVehicle } from "@/pages"
 import { Toaster } from "@/components/ui/toaster"
 import { PATH_LIST } from "@/constants/enum"
-import { HandleErrorComponent } from "./components"
+import { CustomErrorComponent } from "./components"
 function App() {
   return (
     <>
-
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
@@ -28,7 +27,7 @@ function App() {
               <Route path={PATH_LIST.USER} element={<User />} />
               <Route path={PATH_LIST.HEADER} element={<Header />} />
               <Route path={PATH_LIST.SITE} element={<SiteValue />} />
-              <Route path="*" element={<HandleErrorComponent type="notFound"/>} />
+              <Route path="*" element={<CustomErrorComponent type="notFound"/>} />
             </Route>
             <Route path={PATH_LIST.LOGIN} element={<Login />} />
           </Route>

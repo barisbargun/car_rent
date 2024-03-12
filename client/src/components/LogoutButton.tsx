@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import HandleAlert from './HandleAlert';
 import { ToastMessage } from '.';
 import { PATH_LIST } from "@/constants/enum"
+
 const LogoutButton = () => {
   const { mutateAsync, isSuccess, isError, isPending } = _useMutation({
     models: "LOGOUT"

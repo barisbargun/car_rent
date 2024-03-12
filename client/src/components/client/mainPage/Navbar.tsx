@@ -1,4 +1,3 @@
-import { SkeletonNavbar } from "@/components";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui";
 import { pageListNames } from "@/constants";
 import { useGetNavItem } from "@/lib/data"
@@ -12,7 +11,7 @@ type Props = {
 }
 
 const Navbar = ({ navImg, navName }: Props) => {
-  const { data: navData, isSuccess: navSuccess, isPending } = useGetNavItem();
+  const { data: navData, isSuccess: navSuccess } = useGetNavItem();
 
   const getLogo = useMemo(() => {
     if (navImg) {

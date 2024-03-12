@@ -1,5 +1,4 @@
 import { IHeader } from '@/types/exports'
-import React from 'react'
 
 type Props = {
   header?: IHeader;

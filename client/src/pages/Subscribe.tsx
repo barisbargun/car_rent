@@ -1,5 +1,4 @@
 import { Button, Input, Label } from '@/components/ui'
-import React from 'react'
 
 const Subscribe = () => {
   return (

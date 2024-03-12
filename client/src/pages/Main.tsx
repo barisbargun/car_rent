@@ -1,4 +1,4 @@
-import { CarouselSwip, PageLoader, SkeletonCarousel, VehicleCarousel } from "@/components";
+import { CarouselSwip, PageLoader, VehicleCarousel } from "@/components";
 import { useGetCarousels } from "@/lib/data"
 
 import { useCallback, useMemo, useState } from "react";

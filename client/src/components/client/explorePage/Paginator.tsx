@@ -1,6 +1,6 @@
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui'
-import React, { useEffect, useMemo, useState } from 'react'
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui'
+import { useMemo } from 'react'
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 type Props = {
   length: number;
@@ -37,7 +37,7 @@ const Paginator = ({ length }: Props) => {
           {
             [...Array(length + 1)].map((_, i) => i)
               .slice(GetSlice[0], GetSlice[1])
-              .map((v, i) => (
+              .map((v) => (
                 <PaginationLink key={v} to={createPageUrl(v)}>{v}</PaginationLink>
               ))
           }

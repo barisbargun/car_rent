@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer scrollbar {
+  ::-webkit-scrollbar {
+    @apply size-1.5
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[#201c29];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#666];
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#555];
+  }
+
+  ::-webkit-scrollbar-thumb:focus {
+    @apply bg-[#333];
+  }
+}
+
+@layer base {
+  * {
+    @apply font-inter box-border list-none p-0 m-0 scroll-smooth antialiased border-border dark:text-foreground text-pretty;
+  }
+
+  #root {
+    @apply w-full box-border flex flex-col items-center overflow-hidden min-h-screen bg-background text-foreground;
+  }
+
+  .pageWidth {
+    @apply w-[85%] p-4 max-md:w-[90%] max-sm:w-[95%] z-10;
+  }
+
+  textarea {
+    @apply resize-none
+  }
+
+}
+
+@layer base {
+
+  /*
+
+    Fonts
+    
+  */
+  .brandText {
+    @apply font-pacifico text-4xl text-gray-700 dark:text-gray-50 tracking-[1px];
+  }
+
+  .headerText {
+    @apply text-balance uppercase text-4xl max-desktop:text-3xl tracking-[14px] w-[700px] max-w-[90%];
+  }
+
+  .headerDesc {
+    @apply opacity-90 text-sm mt-4 w-[500px] max-w-[85%];
+  }
+
+  .card {
+    @apply p-1 flex flex-col items-center gap-2 w-60 h-60 dark:bg-black bg-white shadow-xl !bg-opacity-40;
+  }
+
+  .vehicleFeatureLabel {
+    @apply text-sm opacity-70;
+  }
+
+  .vehicleFeature {
+    @apply text-4xl max-desktop:text-2xl font-semibold tracking-[2px] leading-[0.8];
+  }
+
+  .arrow {
+    @apply border-black border-t-[8px] border-r-[8px] inline-block p-[8px] cursor-pointer;
+  }
+
+  .grid6 {
+    @apply md:w-[500px] md:grid-cols-2 max-md:flex-center w-fit lg:w-[550px];
+  }
+
+  .grid4 {
+    @apply w-[350px] sm:w-[450px] md:w-[500px] grid-cols-[.75fr_1fr];
+  }
+
+  .carouselItem {
+    @apply md:basis-1/4 !important;
+  }
+
+  .carouselBtn {
+    @apply absolute md:shadow-[0_0_90px_10px_black] max-md:top-[85%] !important;
+  }
+
+}
+
+@layer shadcn {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 346.8 77.2% 49.8%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 346.8 77.2% 49.8%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 346.8 77.2% 49.8%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer utilities {
+  .backgroundPattern::before {
+    content: "";
+    @apply bg-clientPattern bg-no-repeat bg-cover bg-left fixed left-0 top-0 w-full h-full opacity-40 pointer-events-none z-0;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-justify-center {
+    @apply flex justify-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .flex-start {
+    @apply flex justify-start items-center;
+  }
+}
+
+@layer components {}

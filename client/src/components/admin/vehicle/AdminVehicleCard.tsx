@@ -42,7 +42,7 @@ const AdminVehicleCard = ({ data }: Props) => {
       </div>
 
 
-      <div className="absolute top-1 right-1 flex items-start gap-2 z-20 scale-75 mr-[-15px]">
+      <div className="absolute top-1 right-1 flex items-start gap-2 scale-75 mr-[-15px]">
         <OpenDialog
           dialogProps=
           {{

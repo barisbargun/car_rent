@@ -38,7 +38,7 @@ const MenubarTabCard = ({ data }: Props) => {
     <AspectRatio ratio={16 / 9} className="flex-center">
       <img loading="lazy" src={getImage || ""} alt="image" className="rounded-md max-h-full max-w-full" />
 
-      <div className="absolute top-1 right-1 flex items-start gap-2 z-20 scale-75 mr-[-15px]">
+      <div className="absolute top-1 right-1 flex items-start gap-2 scale-75 mr-[-15px]">
         <OpenDialog
           dialogProps=
           {{

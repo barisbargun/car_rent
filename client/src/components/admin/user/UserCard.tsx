@@ -45,7 +45,7 @@ const UserCard = ({ data }: Props) => {
   return (
     data &&
     <div className="card">
-      <div className="flex items-start gap-2 z-20 w-full pl-1">
+      <div className="flex items-start gap-2 w-full pl-1">
         <p className="flex-1 text-sm text-muted-foreground mt-2 line-clamp-2" title={getRoleName}>{getRoleName}</p>
         <span className="scale-75 mr-[-5px]">
           <Button variant="outline" disabled={isSuccess || isPending} size="icon" onClick={handleDelete}>

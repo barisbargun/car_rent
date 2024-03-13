@@ -66,7 +66,7 @@ const ImageForm = ({ mediaUrl, openDialog }: Props) => {
             <FormMessage />
           </FormItem>
         )} />
-        <Button className="mt-10 z-50" disabled={isPending || isSuccess}
+        <Button className="mt-10" disabled={isPending || isSuccess}
           type="submit" variant="secondary">
           {(isPending) && <Loader />}Upload
         </Button>

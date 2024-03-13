@@ -37,12 +37,11 @@ const NavCard = ({ data, handleSwap, swapValue }: Props) => {
 
   return (
     <div className="card h-32">
-      <div className="flex items-start gap-2 z-20 w-full pl-1">
+      <div className="flex items-start gap-2 w-full pl-1">
         {
           typeof data.hyperLink == "number" &&
           <p className="flex-1 text-xs text-muted-foreground mt-1 line-clamp-2" title={GetHyperLinkName}>{GetHyperLinkName}</p>
         }
-
         <span className="scale-75 mr-[-8px] gap-2 mt-[-5px]">
           <Button variant="outline" disabled={isSuccess || isPending} size="icon" onClick={handleDelete}>
             {(isPending || isSuccess) ? <Loader /> : <TrashIcon className="size-5" />}</Button>

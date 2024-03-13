@@ -32,7 +32,7 @@ const MenubarVehicle = () => {
 
         {/** Add button */}
         {getCounts < maxCountsBySection.menubarVehicle &&
-          <div className="fixed right-10 bottom-6 z-[99]">
+          <div className="fixed right-10 bottom-6 z-20">
             <OpenDialog
               dialogProps=
               {{

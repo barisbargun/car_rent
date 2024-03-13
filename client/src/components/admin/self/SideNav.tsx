@@ -44,13 +44,13 @@ const SideNav = () => {
   return (
     <>
       {/** Navigation Desktop */}
-      <span className="max-desktop:hidden">
-        <section className="absolute right-4 flex gap-2">
+      <span className="max-desktop:hidden ">
+        <section className="absolute right-4 flex gap-2 z-30">
           <ProfileBar />
           <Buttons />
         </section>
 
-        <nav className="w-sideNav h-screen 2xl:ml-10 xl:ml-5 ml-2 flex flex-col items-center">
+        <nav className="w-sideNav h-screen 2xl:ml-10 xl:ml-5 ml-2 flex flex-col items-center z-30">
           <GetTitle />
           <div className="flex flex-col items-start gap-3 h-full">
             {GetNavItems()}
@@ -61,11 +61,11 @@ const SideNav = () => {
 
       {/** Navigation Mobile */}
 
-      <nav className="hidden w-full max-desktop:flex justify-between">
+      <nav className="hidden w-full max-desktop:flex justify-between h-fit">
         <GetTitle />
         <Drawer open={openDrawer} onOpenChange={setOpenDrawer}>
           <DrawerTrigger>{<RowsIcon />}</DrawerTrigger>
-          <DrawerContent >
+          <DrawerContent>
             <DrawerHeader>
               <div className="flex-center">
 

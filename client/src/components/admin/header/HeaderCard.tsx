@@ -11,7 +11,7 @@ type Props = {
 const HeaderCard = ({ data }: Props) => {
   return (
     <div className="card">
-      <div className="flex items-start gap-2 z-20 w-full pl-1">
+      <div className="flex items-start gap-2 w-full pl-1">
         <p className="flex-1 text-sm text-muted-foreground mt-2 line-clamp-2"
           title={pageListNames[data.index]}>{pageListNames[data.index]}</p>
         <span className="scale-75">

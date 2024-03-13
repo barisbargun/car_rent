@@ -30,7 +30,7 @@ const MenubarTabCard = ({ data, handleSwap, swapValue }: Props) => {
     <AspectRatio ratio={16 / 9} className="flex-center border-2 dark:border-neutral-800">
       <h2 className="px-4 line-clamp-4 break-words" title={data.title}>{data.title}</h2>
 
-      <div className="absolute top-1 right-1 flex items-start gap-2 z-20 scale-75 mr-[-18px]">
+      <div className="absolute top-1 right-1 flex items-start gap-2 scale-75 mr-[-18px]">
         <OpenDialog
           dialogProps=
           {{

@@ -39,7 +39,7 @@ const AdminReviewCard = ({ data, handleSwap, swapValue }: Props) => {
 
   return (
     <div className="card">
-      <div className="flex items-start gap-2 z-20 w-full pl-1">
+      <div className="flex items-start gap-2 w-full pl-1">
         <p className="flex-1 text-sm text-muted-foreground mt-1 line-clamp-2" title={data.occupation}>{data.occupation}</p>
         <span className="scale-75 mr-[-5px]">
           <OpenDialog

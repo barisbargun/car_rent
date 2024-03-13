@@ -28,7 +28,7 @@ const Image = () => {
 
         {/** Add button */}
         {data?.length < maxCountsBySection.images &&
-          <div className="fixed right-10 bottom-6 z-[99]">
+          <div className="fixed right-10 bottom-6 z-20">
             <ImageUploadButton />
           </div>
         }

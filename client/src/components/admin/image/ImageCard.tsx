@@ -39,7 +39,7 @@ const ImageCard = ({ image }: Props) => {
 
       <img loading="lazy" src={getImage || ""} alt="image" className="rounded-md max-h-full max-w-full" />
       <HandleAlert trigger={handleDelete}>
-        <Button variant="outline" disabled={isSuccess || isPending} size="icon" className="absolute top-1 right-1 z-20">
+        <Button variant="outline" disabled={isSuccess || isPending} size="icon" className="absolute top-1 right-1">
           {(isPending || isSuccess) ? <Loader /> : <TrashIcon className="size-5" />}
         </Button>
       </HandleAlert>

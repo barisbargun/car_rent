@@ -36,7 +36,7 @@ const FileUploader = ({ fieldChange, mediaUrl }: props) => {
             <div  {...(!fileUrl ? getRootProps() : {})} className='w-full'>
                 {!fileUrl && <input {...getInputProps()} />}
 
-                <div className='flex flex-col flex-center cursor-pointer w-full h-[300px]'>{
+                <div className='flex flex-col flex-center cursor-pointer w-full h-[250px] sm:h-[300px]'>{
                     fileUrl ?
                         <ImageCrop fileUrl={fileUrl} setFile={setFile} /> :
                         <div className='border-2 rounded-xl w-full border-dashed h-full flex-center flex-col'>

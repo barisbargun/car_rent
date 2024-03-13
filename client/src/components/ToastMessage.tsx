@@ -9,7 +9,7 @@ interface IToastText {
   variant?: typeVariant;
 }
 
-type actions = 'login' | 'loginFailed' | 'error' | 'logout' | 'emptyImage' | 'uploadedImage' | 'deletedImage' | 'update' | 'create' | 'delete';
+type actions = 'login' | 'loginFailed' | 'error' | 'logout' | 'emptyImage' | 'uploadedImage' | 'deletedImage' | 'update' | 'create' | 'delete' | 'bigImage';
 
 const toastTexts: Record<actions, IToastText> = {
   login: {
@@ -49,6 +49,11 @@ const toastTexts: Record<actions, IToastText> = {
   delete: {
     title: 'Deleted.',
     description: 'Deleted Successfully!'
+  },
+  bigImage: {
+    title: 'Image is too big',
+    description: 'Please upload maximum 700kb size',
+    variant: 'destructive'
   },
   error: {
     title: 'An error happened',

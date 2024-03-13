@@ -25,7 +25,7 @@ app.use(rateLimitOptions);
 app.use(helmet());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json({ limit: "50mb" }))
+app.use(express.json({ limit: "1mb" }))
 app.use(credentials);
 app.use(cors(corsOptions));
 

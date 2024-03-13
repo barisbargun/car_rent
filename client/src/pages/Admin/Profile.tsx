@@ -6,7 +6,7 @@ const Profile = () => {
   const { user } = _useContext();
 
   return (
-    <div className="flex-center max-desktop:flex-col desktop:gap-20 gap-10 ">
+    <div className="flex-center max-desktop:flex-col desktop:gap-20 gap-10">
 
       <Avatar className="desktop:size-80 size-60 relative flex-center">
         <AvatarImage src={user?.img?.imgUrl || "/assets/profile-placeholder.svg"} alt="profile-image" />

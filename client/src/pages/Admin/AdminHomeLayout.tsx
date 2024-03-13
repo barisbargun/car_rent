@@ -18,7 +18,7 @@ const AdminHomeLayout = () => {
         <main
           className="desktop:absolute max-desktop:w-screen 
           max-desktop:h-full
-          w-[85%] h-[calc(100vh_-_120px)] bottom-0 right-0">
+          w-[85%] h-[calc(100vh_-_120px)] bottom-0 right-0 overflow-hidden">
 
           <div className="max-desktop:hidden absolute top-[-30px] left-2">
             <BreadCrumb />

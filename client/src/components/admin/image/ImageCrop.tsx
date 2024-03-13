@@ -12,7 +12,6 @@ const ImageCrop = ({ fileUrl, setFile }: Props) => {
   const [ratio, setRatio] = useState("16/9");
 
   const onCropComplete = (_croppedArea: Area, pixels: Area) => {
-    console.log(pixels)
     setFile && setFile(v => v && { ...v, ...pixels });
   }
 

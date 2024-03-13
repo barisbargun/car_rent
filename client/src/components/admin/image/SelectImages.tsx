@@ -36,7 +36,7 @@ const SelectImages = ({ fieldChange, openDialog, setImage }: Props) => {
         {data?.slice()?.reverse()?.map((v) => v.imgUrl && (
           <div className="w-full cursor-pointer relative" key={v.id} >
             <ImageCard image={v} />
-            <div className='absolute w-full h-full top-0 left-0'
+            <div className='absolute w-full h-full top-0 left-0 z-0'
               onClick={() => selectImage(v.id, v.imgUrl)}></div>
           </div>
         ))}

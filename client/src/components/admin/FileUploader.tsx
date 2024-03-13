@@ -2,7 +2,7 @@ import { convertFileToUrl } from '@/lib/utils';
 import { useCallback, useEffect, useState } from 'react'
 import { FileWithPath, useDropzone } from 'react-dropzone';
 
-import { ImageCrop } from '..';
+import { ImageCrop, ToastMessage } from '..';
 type props = {
     fieldChange: any,
     mediaUrl: string | undefined
@@ -11,9 +11,13 @@ type props = {
 const FileUploader = ({ fieldChange, mediaUrl }: props) => {
     const [file, setFile] = useState<IFileUploader>();
     const [fileUrl, setFileUrl] = useState<string | undefined>(mediaUrl);
+    const toastMessage = ToastMessage();
 
     const onDrop = useCallback(
         (acceptedFiles: FileWithPath[]) => {
+            const size = acceptedFiles[0].size / 1024;
+            if (size > 701) return toastMessage({ defaultText: "bigImage" });
+            console.log(acceptedFiles[0])
             setFile(v => ({ ...v, file: acceptedFiles[0] }));
             setFileUrl(convertFileToUrl(acceptedFiles[0]));
         },

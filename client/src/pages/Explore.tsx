@@ -29,7 +29,7 @@ const Explore = ({ header }: Props) => {
 
   return (
     tabSuccess && vehicleSuccess &&
-    <div className='flex-center flex-col py-14 pageWidth' id='explore'>
+    <div className='flex-center flex-col py-14 pageWidth z-20' id='explore'>
       <Header header={header} defaultTitle='Explore' />
       <div className='flex-center max-md:flex-col gap-2 mt-10'>
         <Button variant="outline" size="icon"><MixerHorizontalIcon className='size-4' /></Button>

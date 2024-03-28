@@ -7,7 +7,6 @@ type Props = {
 }
 
 const Menubar = ({ data }: Props) => {
-
   const [searchParams] = useSearchParams();
   const location = useLocation();
 
@@ -20,6 +19,7 @@ const Menubar = ({ data }: Props) => {
 
   const getChildren = (vehicle: IMenubarVehicle[]) => {
     return (
+      vehicle &&
       vehicle.sort((a, b) => a.index - b.index).map(v => (
         <li key={v.id}>
           <NavigationMenuLink asChild>

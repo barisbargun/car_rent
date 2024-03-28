@@ -8,8 +8,6 @@ type Props = {
 
 const CarouselSwip = ({ swipeLeft, swipeRight, page, carouselLength, getNumber }: Props) => {
 
-
-
   return (
     <>
       <i className={"arrow rotate-[-135deg] " + (page == 1 ? "border-stone-400" : "")} onClick={swipeLeft} />

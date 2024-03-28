@@ -21,13 +21,12 @@ const VehicleCarousel = ({ data, setPage, setRef }: Props) => {
     slidesToScroll: 1,
   };
 
-
   return (
+    data &&
     <Slider {...settings}
       className=""
       ref={slider => (setRef(slider))}
       afterChange={e => setPage(e + 1)}
-
     >
       {
         data?.slice().sort((a, b) => a.index - b.index).map(v =>

@@ -14,12 +14,11 @@ import cookieParser from "cookie-parser";
 import { dbConnect, corsOptions, rateLimitOptions } from "@/config";
 import { credentials, verifyJWT } from "@/middleware";
 import { auth, refresh, image, route, logout } from "@/routes";
+import redis from "@/routes/redis";
 
 promise.polyfill();
 
-dbConnect();
 const app = express();
-
 app.disable("x-powered-by");
 app.use(rateLimitOptions);
 app.use(helmet());
@@ -31,16 +30,22 @@ app.use(cors(corsOptions));
 
 app.use(cookieParser());
 
-app.use("/api/auth", auth);
-app.use("/api/refresh", refresh);
-app.use("/api/logout", verifyJWT, logout);
+app.use("/api/redis", redis)
 
-app.use("/api/image/", image)
-app.use("/api/", route);
+const mergedRouter = express.Router();
+
+mergedRouter.use("/auth", auth);
+mergedRouter.use("/refresh", refresh);
+mergedRouter.use("/logout", verifyJWT, logout);
+mergedRouter.use("/image", image);
+mergedRouter.use("/", route);
+
+app.use("/api", dbConnect, mergedRouter);
+
 
 mongoose.connection.once('open', () => {
   console.log("connected to mongoDB")
-  app.listen(8080, () => console.log("listening 8080"));
 })
+app.listen(8080, () => console.log("listening 8080"));
 
 export const handler = serverless(app);

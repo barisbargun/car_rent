@@ -1,6 +1,6 @@
 import { StatusCodes } from "http-status-codes";
 import { Response } from "express";
-import { Model } from "mongoose";
+import mongoose, { Model } from "mongoose";
 import { PAGE_LIST } from "@/constants/enum";
 import { Carousel, FooterLink, Image, MenubarVehicle, NavItem, Service, User } from "@/models";
 import Vehicle from "@/models/explore/Vehicle";
@@ -68,4 +68,61 @@ export const checkMaximumCount = async (model: Model<any>) => {
       break;
   }
   if (res) throw res;
+}
+
+export const setRedisValue = async () => {
+  try {
+    const modelNames = Object.keys(mongoose.models);
+    let promises: any = {};
+    const acceptedModels = ["menubar_tab", "footer_tab", "carousel", "nav_item", "review", "service", "header", "site_value"];
+    for (const modelName of modelNames) {
+      if (acceptedModels.includes(modelName.toLowerCase())) {
+        const model = mongoose.model(modelName)
+        let data: any = model.find({});
+        const paths = model.schema.paths;
+        if (paths.img)
+          data = data.populate("img");
+        if (paths.logoImg)
+          data = data.populate("logoImg");
+        if (paths.navImg)
+          data = data.populate("navImg");
+        if (paths.serviceImg)
+          data = data.populate("serviceImg");
+        if (paths.parent)
+          data = data.populate("parent");
+
+        if (model.schema.paths.children) {
+          try {
+            let data2 = data.clone();
+            if (modelName == "Menubar_tab") {
+              data2 = await data2.populate([
+                { path: "children", populate: { path: "img" } },
+                { path: "children", populate: { path: "children", populate: { path: "img" } } }
+              ]);
+
+            } else {
+              data2 = await data2.populate({ path: "children", populate: { path: "img" } });
+            }
+
+            data = data2;
+          } catch (error) {
+            data = data.populate("children");
+          }
+        }
+        promises[modelName.toLowerCase()] = await data;
+      }
+    }
+    const redis = (await import("./redis/index")).redis;
+    await redis.set("car-rent", JSON.stringify(promises));
+  } catch (error) {
+    console.log(error);
+  }
+
+}
+
+export const getRedisValue = async (key: string) => {
+  const redis = (await import("./redis/index")).redis;
+  const result = (await redis.get(key));
+  const json = typeof result == "string" ? JSON.parse(result) : result;
+  return json;
 }

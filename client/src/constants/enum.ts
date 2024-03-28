@@ -17,7 +17,8 @@ export enum PATH_LIST {
   LOGOUT = "logout",
   LOGIN = "login",
   AUTH = "auth",
-  ADMIN = "admin"
+  ADMIN = "admin",
+  REDIS = "redis"
 };
 
 export enum ROLE_LIST {

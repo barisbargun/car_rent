@@ -29,7 +29,7 @@ const ImageCard = ({ image }: Props) => {
     let url: any = image?.imgUrl;
     if (url) {
       url = url.split("/image/upload/");
-      url = `${url[0]}/image/upload/w_500,c_lfill/${url[1]}`;
+      url = `${url[0]}/image/upload/w_499,c_lfill/${url[1]}`;
     }
     return url;
   }, [image?.imgUrl])

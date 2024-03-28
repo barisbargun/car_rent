@@ -1,4 +1,7 @@
 export enum QUERY_KEYS {
+  // ALL VALUE KEYS
+  GET_ALL_VALUE = "getAllValue",
+
   // USER KEYS
   GET_CURRENT_USER = "getCurrentUser",
   GET_USERS = "getUsers",
@@ -14,11 +17,11 @@ export enum QUERY_KEYS {
   // VEHICLE KEYS
   GET_VEHICLES = "getVehicles",
   GET_VEHICLE_BY_ID = "getVehicleById",
-  
+
   // FOOTER KEYS
   GET_FOOTER_TABS = "getFooterTabs",
   GET_FOOTER_TAB_BY_ID = "getFooterTabById",
-  
+
   GET_FOOTER_LINKS = "getFooterLinks",
   GET_FOOTER_LINK_BY_ID = "getFooterLinkById",
 

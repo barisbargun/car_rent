@@ -4,7 +4,7 @@ import createAuthRefreshInterceptor from "axios-auth-refresh";
 let token = "";
 
 export const axios = baseAxios.create({
-  baseURL: "https://barisolgun-car-rent-api.netlify.app/api",
+  baseURL: process.env.NODE_ENV === 'production' ? import.meta.env.VITE_API_URL :"http://localhost:8080/api",
   headers: {
     "Content-Type": "application/json"
   },

@@ -39,3 +39,19 @@ export interface IStatisticCard {
   names: string[];
   link?:PATH_LIST;
 }
+
+/**
+ * 
+ * REDIS
+ * 
+ */
+export interface IAllValue {
+  carousel:ICarousel[];
+  menubar_tab:IMenubarTab[]; 
+  footer_tab:IFooterTab[]; 
+  nav_item:INavItem[]; 
+  review:IReview[]; 
+  service:IService[]; 
+  header:IHeader[]; 
+  site_value:ISiteValue[];
+}

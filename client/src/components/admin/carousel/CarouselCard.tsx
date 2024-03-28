@@ -33,6 +33,7 @@ const CarouselCard = ({ data, handleSwap, swapValue }: Props) => {
       url = url.split("/image/upload/");
       url = `${url[0]}/image/upload/w_500,c_lfill/${url[1]}`;
     }
+    console.log(url)
     return url;
   }, [data?.img?.imgUrl])
 

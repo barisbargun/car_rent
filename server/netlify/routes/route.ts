@@ -3,11 +3,9 @@ import { createData, deleteData, getAllData, getData, patchData, moveData } from
 import { CONTROLLER_ACTIONS } from "@/constants";
 import { verifyAdminRole, verifyEditorRole } from "@/middleware/verifyRoles";
 import { Model } from "mongoose";
-import { getCurrentUser, getCollectionData, getHeaderValueByIndex, getUsers, patchUser, patchSiteValue, getInfo } from "@/controllers/custom";
+import { getCurrentUser, getHeaderValueByIndex, getUsers, patchUser, patchSiteValue, getInfo } from "@/controllers/custom";
 import { verifyJWT } from "@/middleware";
 const router = Router();
-
-router.get("/allData", verifyJWT, getCollectionData);
 
 const values = Object.values(CONTROLLER_ACTIONS);
 

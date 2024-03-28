@@ -2,7 +2,7 @@ import { _uploadImage, _delImage } from "./cloudinaryController";
 import { Image } from "@/models/index";
 import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
-import { checkMaximumCount, responseMessage } from "@/lib";
+import { checkMaximumCount, getRedisValue, responseMessage, setRedisValue } from "@/lib";
 
 
 /*
@@ -12,8 +12,8 @@ Get data by the imgId
 */
 export const getImages = async (req: Request, res: Response) => {
   try {
-
     const data = await Image.find({});
+
     if (!data) return res.sendStatus(StatusCodes.NOT_FOUND);
     res.status(StatusCodes.OK).json(data);
   } catch (error) {

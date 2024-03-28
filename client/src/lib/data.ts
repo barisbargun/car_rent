@@ -1,8 +1,20 @@
-import { IHeader, INavItem } from "@/types/exports";
+import { IAllValue, IHeader, INavItem } from "@/types/exports";
 import { _useQuery } from "./react-query/queries"
 import { QUERY_KEYS } from "./react-query/queryKeys"
 import { PATH_LIST } from "@/constants/enum"
 import { IUser } from "@/types/exports";
+
+
+/**
+ * 
+ * MENUBAR_TAB
+ * 
+ */
+export const useGetAllValue = () => {
+  return _useQuery<IAllValue>(QUERY_KEYS.GET_ALL_VALUE, PATH_LIST.REDIS);
+}
+
+
 /**
  * 
  * MENUBAR_TAB

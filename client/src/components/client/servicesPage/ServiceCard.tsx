@@ -1,9 +1,6 @@
 import { useMemo } from 'react'
 
-
-
 const ServiceCard = ({ data }: { data: Omit<IService, "id" | "index"> }) => {
-
   const getLogo = useMemo(() => {
     let url: any = data.img?.imgUrl;
     if (url) {

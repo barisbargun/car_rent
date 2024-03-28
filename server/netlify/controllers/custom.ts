@@ -245,32 +245,3 @@ export const deleteFromParentModel = async (parentModel: Model<any>, childId: St
       { $pull: { children: childId } });
   } else throw Error;
 }
-
-
-/*
-
-Get car_rent collection data
-
-*/
-export const getCollectionData = async (_req: Request, res: Response) => {
-  try {
-    const modelNames = Object.keys(mongoose.models);
-
-    const promises = [];
-
-    for (const modelName of modelNames) {
-      promises.push(mongoose.model(modelName).find().lean());
-    }
-
-    const collectionsData = await Promise.all(promises);
-
-    const result: any = {};
-    for (let i = 0; i < modelNames.length; i++) {
-      result[modelNames[i]] = collectionsData[i];
-    }
-
-    res.status(StatusCodes.OK).json(result);
-  } catch (error) {
-    res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR);
-  }
-};

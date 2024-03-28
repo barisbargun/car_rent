@@ -6,6 +6,7 @@ type Props = {
 
 const FooterTab = ({ data }: Props) => {
   return (
+    data &&
     <div>
       <h4 className="max-sm:text-lg max-sm:mb-2">{data.title}</h4>
       <ul>

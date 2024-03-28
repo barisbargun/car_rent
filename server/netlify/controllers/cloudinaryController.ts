@@ -10,7 +10,7 @@ cloudinary.config({
 });
 
 export const _uploadImage = async (req: Request) => {
-  const { imgUrl, file, width, height, x, y } = req.body;
+  const { imgUrl, width, height, x, y } = req.body;
   if (imgUrl.length < 10) throw Error;
 
   let cropOptions: { width?: number, height?: number, crop?: string, x?: number, y?: number } = {};
@@ -26,6 +26,7 @@ export const _uploadImage = async (req: Request) => {
 
   const options: UploadApiOptions = {
     use_filename: true,
+    folder:"car-rent",
     overwrite: true,
     unique_filename: true,
     transformation: { quality: "70", crop: "crop", fetch_format: "avif", ...cropOptions }

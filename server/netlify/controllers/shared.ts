@@ -4,7 +4,7 @@ import { Header, Image, User } from "@/models";
 import { Request, Response } from "express";
 import { ROLE_LIST } from "@/constants/enum";
 import bcrypt from "bcryptjs";
-import { checkMaximumCount, responseMessage, setHeaderValues } from "@/lib";
+import { checkMaximumCount, responseMessage, setHeaderValues, setRedisValue } from "@/lib";
 import { addToParentModel, deleteFromParentModel } from "./custom";
 
 
@@ -56,7 +56,7 @@ export const getAllData = async (_req: Request, res: Response, model: Model<any>
     if (model.schema.paths.children) {
       try {
         let data2 = data.clone();
-        data2 = await data2.populate({ path: "children", populate: { path: "img" } });
+        data2 = await data2.populate({ path: "children", populate: { path: "img"}});
         data = data2;
       } catch (error) {
         data = data.populate("children");
@@ -131,6 +131,8 @@ export const createData = async (req: Request, res: Response, model: Model<any>,
     if (parent)
       await addToParentModel(parentModel!, req.body.parent, child.id)
 
+    if (model != User) setRedisValue();
+
     res.sendStatus(StatusCodes.CREATED);
   } catch (error) {
     res.sendStatus(StatusCodes.FORBIDDEN);
@@ -177,6 +179,7 @@ export const patchData = async (req: Request, res: Response, model: Model<any>, 
       }
     }
 
+    if (model != User) setRedisValue();
 
     res.sendStatus(StatusCodes.OK);
   } catch (error) {
@@ -215,6 +218,8 @@ export const deleteData = async (req: Request, res: Response, model: Model<any>,
     } catch { }
 
     await item.deleteOne();
+
+    if (model != User) setRedisValue();
     res.sendStatus(StatusCodes.OK);
   } catch (error) {
     console.log(error)
@@ -254,7 +259,7 @@ export const moveData = async (req: Request, res: Response, model: Model<any>) =
     }
 
     await Promise.all(updateModels);
-
+    if (model != User) setRedisValue();
     res.sendStatus(StatusCodes.OK);
   } catch (error) {
     res.sendStatus(StatusCodes.INTERNAL_SERVER_ERROR);

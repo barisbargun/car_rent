@@ -8,7 +8,6 @@ import mongoose from "mongoose";
 
 import serverless from "serverless-http";
 import promise from "es6-promise";
-import isoFetch from "isomorphic-fetch";
 import cookieParser from "cookie-parser";
 
 import { dbConnect, corsOptions, rateLimitOptions } from "@/config";
@@ -41,7 +40,6 @@ mergedRouter.use("/image", image);
 mergedRouter.use("/", route);
 
 app.use("/api", dbConnect, mergedRouter);
-
 
 mongoose.connection.once('open', () => {
   console.log("connected to mongoDB")

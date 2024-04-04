@@ -71,19 +71,3 @@ export const _useQuery = <T>(query_key: QUERY_KEYS, path: string) => {
     staleTime: 1000 * 60 * 30,
   })
 }
-// Suspense query
-export const _useSuspenseQuery = <T>(query_key: QUERY_KEYS, path: string) => {
-  return useSuspenseQuery({
-    queryKey: [query_key],
-    queryFn: () => axios.get(path)
-      .then(res => res.data as T)
-      .catch((error: AxiosError) => {
-        if (error.response)
-          throw error.response;
-        throw error;
-      }),
-    retry: false,
-    refetchOnWindowFocus: false,
-    staleTime: 1000 * 60 * 30,
-  })
-}

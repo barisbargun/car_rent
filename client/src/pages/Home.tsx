@@ -6,16 +6,14 @@ import { PAGE_LIST } from "@/constants/enum";
 import { Button } from "@/components/ui";
 
 const Home = () => {
-  const { data, isPending, isSuccess, refetch } = useGetAllValue();
+  const { data, isSuccess, isError, refetch } = useGetAllValue();
 
   const getHeader = useCallback(
     (index: number) => data?.header?.find((v) => v.index == index),
     [data?.header]
   );
 
-  return isPending ? (
-    <PageLoader text="Page Loading.." />
-  ) : isSuccess ? (
+  return isSuccess && data ? (
     <div className="backgroundPattern text-textColor">
       <Navbar
         navImg={data.site_value && data.site_value[0].navImg}
@@ -43,18 +41,20 @@ const Home = () => {
       </main>
     </div>
   ) : (
-    <span className="absolute desktop:bottom-5 desktop:right-5 p-4 rounded-md bg-destructive/100 text-white max-w-full max-desktop:top-2 max-desktop:left-2 max-desktop:mr-2">
-      <CustomErrorComponent />
-      <Button
-        variant="outline"
-        className="text-black mt-2"
-        onClick={() => {
-          refetch();
-        }}
-      >
-        Refetch
-      </Button>
-    </span>
+    isError && (
+      <span className="absolute desktop:bottom-5 desktop:right-5 p-4 rounded-md bg-destructive/100 text-white max-w-full max-desktop:top-2 max-desktop:left-2 max-desktop:mr-2">
+        <CustomErrorComponent />
+        <Button
+          variant="outline"
+          className="text-black mt-2"
+          onClick={() => {
+            refetch();
+          }}
+        >
+          Refetch
+        </Button>
+      </span>
+    )
   );
 };
 

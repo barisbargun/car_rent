@@ -1,4 +1,4 @@
-import { IController } from "@/types/index";
+import { IController } from "@/types/export";
 import { MenubarTab, MenubarVehicle, FooterTab, FooterLink, Carousel, NavItem, Review, Service, Header, SiteValues, User } from "@/models/index";
 import Vehicle from "@/models/explore/Vehicle";
 

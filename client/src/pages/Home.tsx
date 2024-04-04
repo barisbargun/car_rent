@@ -1,4 +1,4 @@
-import { CustomErrorComponent, Navbar, PageLoader } from "@/components";
+import { CustomErrorComponent, Navbar } from "@/components";
 import { Footer, Main, Explore, Reviews, Services, Subscribe } from ".";
 import { useCallback } from "react";
 import { useGetAllValue } from "@/lib/data";
